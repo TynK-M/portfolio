@@ -1,2 +1,2 @@
 # portfolio
-Personal portfolio written with Haskell
+Personal portfolio written with Rust
