@@ -27,3 +27,6 @@ rustc-ice-*.txt
 # Added by cargo
 
 /target
+
+# TODO: check if it is possible to use GitHub actions to auto-build docs/
+docs
