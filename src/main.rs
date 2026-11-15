@@ -1,12 +1,13 @@
+mod generator;
 mod pages;
 mod styles;
 
-use std::fs;
+use generator::Page;
 
-fn main() {
-    let home = pages::home::render();
+fn main() -> std::io::Result<()> {
+    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
 
-    fs::create_dir_all("docs").expect("Failed to create docs directory");
+    let pages = [Page::new("index.html", pages::home::render)];
 
-    fs::write("docs/index.html", home.into_string()).expect("Failed to write index.html");
+    generator::build("docs", &pages)
 }
