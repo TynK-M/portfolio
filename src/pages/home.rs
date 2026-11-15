@@ -1,4 +1,4 @@
-use maud::{DOCTYPE, Markup, html};
+use maud::{DOCTYPE, Markup, PreEscaped, html};
 
 pub fn render() -> Markup {
     html! {
@@ -7,21 +7,16 @@ pub fn render() -> Markup {
             head {
                 meta charset="utf-8";
                 meta name="viewport" content="width=device-width, initial-scale=1";
-                title { "My Portfolio" }
+                title { "Matteo Pauroso" };
+                style {
+                    (PreEscaped(crate::styles::stylesheet()))
+                }
             }
 
             body {
-                header {
-                    nav {
-                        a href="/" { "Home" }
-                        a href="#about" { "About" }
-                        a href="#projects" { "Projects" }
-                    }
-                }
-
                 main {
                     section class="hero" {
-                        h1 { "Hello, I'm Your Name." }
+                        h1 { "Hello, I'm Matteo Pauroso." }
                         p { "I'm a developer who loves building things for the web." }
                     }
 
@@ -37,7 +32,7 @@ pub fn render() -> Markup {
                 }
 
                 footer {
-                    p { "© 2026 My Portfolio" }
+                    p { "© 2026 Matteo Pauroso" }
                 }
             }
         }
