@@ -4,7 +4,12 @@ pub fn render() -> Markup {
     html! {
         header class="site-header" {
             a class="site-logo" href="/" {
-                "Matteo Pauroso"
+                img
+                    src="/logo.png"
+                    alt=""
+                    width="32"
+                    height="32";
+                span { "Matteo Pauroso" }
             }
 
             nav aria-label="Main navigation" {
