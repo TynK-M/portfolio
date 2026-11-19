@@ -7,7 +7,7 @@ pub fn render() -> Markup {
         html! {
             section class="hero" {
                 h1 { "Hello, I'm Matteo Pauroso." }
-                p { "I'm a developer who loves building things for the web." }
+                p { "I'm a developer exploring software solutions. I enjoy experimenting with new technologies" }
             }
         },
     )

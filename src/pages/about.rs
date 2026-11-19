@@ -7,7 +7,11 @@ pub fn render() -> Markup {
         html! {
             section {
                 h1 { "About me" }
-                p { "A little introduction about myself." }
+                p { "I'm a Backend Developer with experience in developing and maintaining server-side applications and APIs." }
+
+                p { "I mainly work with Java and Python. I'm interested in building simple, maintainable and reliable systems while continuously improving through hands-on experience and personal projects." }
+
+                p{"Currently studying Computer Science at UnitelmaSapienza." }
             }
         },
     )
