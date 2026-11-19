@@ -15,6 +15,10 @@ pub const FONT_SIZE_BASE: &str = "1rem";
 pub const FONT_SIZE_LARGE: &str = "1.25rem";
 pub const FONT_SIZE_HERO: &str = "clamp(2.5rem, 7vw, 4.5rem)";
 
+//pub const FONT_WEIGHT_REGULAR: &str = "400";
+//pub const FONT_WEIGHT_MEDIUM: &str = "500";
+pub const FONT_WEIGHT_BOLD: &str = "700";
+
 pub const CONTENT_WIDTH: &str = "860px";
 pub const TEXT_WIDTH: &str = "600px";
 

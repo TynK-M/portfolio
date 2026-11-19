@@ -12,6 +12,39 @@ pub fn stylesheet() -> String {
             background: {};
         }}
 
+        .site-header {{
+            width: min({}, calc(100% - {}));
+            margin-inline: auto;
+            padding-block: {};
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: {};
+        }}
+
+        .site-logo {{
+            color: {};
+            font-weight: {};
+        }}
+
+        .site-header nav ul {{
+            display: flex;
+            align-items: center;
+            gap: {};
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }}
+
+        .site-header nav a {{
+            color: {};
+        }}
+
+        .site-header nav a:hover {{
+            color: {};
+        }}
+
         main {{
             width: min({}, calc(100% - {}));
             margin-inline: auto;
@@ -53,6 +86,11 @@ pub fn stylesheet() -> String {
         }}
 
         @media (max-width: {}) {{
+            .site-header {{
+                flex-direction: column;
+                align-items: flex-start;
+            }}
+
             main {{
                 padding-top: {};
             }}
@@ -63,6 +101,15 @@ pub fn stylesheet() -> String {
         }}
         "#,
         theme::BACKGROUND,
+        tokens::CONTENT_WIDTH,
+        tokens::SPACE_12,
+        tokens::SPACE_6,
+        tokens::SPACE_4,
+        theme::FOREGROUND,
+        tokens::FONT_WEIGHT_BOLD,
+        tokens::SPACE_6,
+        theme::MUTED,
+        theme::AQUA,
         tokens::CONTENT_WIDTH,
         tokens::SPACE_12,
         tokens::HERO_PADDING_TOP,
