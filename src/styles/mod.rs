@@ -1,3 +1,4 @@
+pub mod contact;
 pub mod layout;
 pub mod projects;
 pub mod theme;

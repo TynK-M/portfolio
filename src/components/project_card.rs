@@ -9,8 +9,12 @@ pub fn render(repository: &Repository) -> Markup {
                     a href=(repository.html_url)
                         target="_blank"
                         rel="noopener noreferrer" {
-                        (repository.name)
-                        "↗"
+                        img
+                            src="https://cdn.simpleicons.org/github/a89984"
+                            alt="GitHub"
+                            width="24"
+                            height="24";
+                        span { (repository.name) }
                     }
                 }
             }

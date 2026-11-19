@@ -55,6 +55,14 @@ pub fn stylesheet() -> String {
         .project-card h2 a {{
             color: {foreground};
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: {header_gap};
+        }}
+
+        .project-card h2 a img {{
+            width: {icon_size};
+            height: {icon_size};
         }}
 
         .project-card h2 a:hover {{
@@ -126,5 +134,6 @@ pub fn stylesheet() -> String {
         forks_color = theme::AQUA,
         issues_color = theme::RED,
         breakpoint = tokens::BREAKPOINT_MOBILE,
+        icon_size = tokens::SPACE_6,
     )
 }
