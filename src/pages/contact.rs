@@ -10,5 +10,6 @@ pub fn render() -> Markup {
                 p { "Have a project in mind? Let's talk." }
             }
         },
+        "",
     )
 }

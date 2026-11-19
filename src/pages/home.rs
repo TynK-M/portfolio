@@ -10,5 +10,6 @@ pub fn render() -> Markup {
                 p { "I'm a developer exploring software solutions. I enjoy experimenting with new technologies" }
             }
         },
+        "",
     )
 }

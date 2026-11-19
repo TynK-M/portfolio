@@ -2,7 +2,7 @@ use maud::{DOCTYPE, Markup, PreEscaped, html};
 
 use crate::{components::footer, components::header, styles};
 
-pub fn render(title: &str, content: Markup) -> Markup {
+pub fn render(title: &str, content: Markup, page_styles: &str) -> Markup {
     html! {
         (DOCTYPE)
         html lang="en" {
@@ -11,7 +11,8 @@ pub fn render(title: &str, content: Markup) -> Markup {
                 meta name="viewport" content="width=device-width, initial-scale=1";
                 title { (title) }
                 style {
-                    (PreEscaped(styles::stylesheet()))
+                    (PreEscaped(styles::global()))
+                    (PreEscaped(page_styles))
                 }
             }
 

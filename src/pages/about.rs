@@ -14,5 +14,6 @@ pub fn render() -> Markup {
                 p{"Currently studying Computer Science at UnitelmaSapienza." }
             }
         },
+        "",
     )
 }
