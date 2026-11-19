@@ -14,10 +14,34 @@ impl Page {
     }
 }
 
+fn copy_directory(source: &Path, destination: &Path) -> io::Result<()> {
+    fs::create_dir_all(destination)?;
+
+    for entry in fs::read_dir(source)? {
+        let entry = entry?;
+        let source_path = entry.path();
+        let destination_path = destination.join(entry.file_name());
+
+        if source_path.is_dir() {
+            copy_directory(&source_path, &destination_path)?;
+        } else {
+            fs::copy(&source_path, &destination_path)?;
+        }
+    }
+
+    Ok(())
+}
+
 pub fn build(output_dir: impl AsRef<Path>, pages: &[Page]) -> io::Result<()> {
     let output_dir = output_dir.as_ref();
 
     fs::create_dir_all(output_dir)?;
+
+    let static_dir = Path::new("static");
+    if static_dir.exists() {
+        copy_directory(static_dir, output_dir)?;
+        log::info!("Copied static assets");
+    }
 
     log::info!("Building site into {}", output_dir.display());
 
