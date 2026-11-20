@@ -3,7 +3,7 @@ use maud::{Markup, html};
 pub fn render() -> Markup {
     html! {
         header class="site-header" {
-            a class="site-logo" href="/" {
+            a class="site-logo" href=(crate::site::url("/")) {
                 img
                     src=(crate::site::url("logo.png"))
                     alt=""
