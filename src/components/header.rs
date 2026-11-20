@@ -5,7 +5,7 @@ pub fn render() -> Markup {
         header class="site-header" {
             a class="site-logo" href="/" {
                 img
-                    src="/logo.png"
+                    src=(crate::site::url("logo.png"))
                     alt=""
                     width="32"
                     height="32";
@@ -15,13 +15,13 @@ pub fn render() -> Markup {
             nav aria-label="Main navigation" {
                 ul {
                     li {
-                        a href="/about/" { "About" }
+                        a href=(crate::site::url("about/")) { "About" }
                     }
                     li {
-                        a href="/projects/" { "Projects" }
+                        a href=(crate::site::url("projects/")) { "Projects" }
                     }
                     li {
-                        a href="/contact/" { "Contact" }
+                        a href=(crate::site::url("contact/")) { "Contact" }
                     }
                 }
             }

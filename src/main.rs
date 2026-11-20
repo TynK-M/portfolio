@@ -3,6 +3,7 @@ mod dev_server;
 mod generator;
 mod github;
 mod pages;
+mod site;
 mod styles;
 
 use generator::Page;
