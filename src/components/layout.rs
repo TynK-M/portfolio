@@ -1,4 +1,3 @@
-
 use maud::{DOCTYPE, Markup, PreEscaped, html};
 
 use crate::{components::footer, components::header, styles};
@@ -10,7 +9,7 @@ pub fn render(
     content: Markup,
     page_styles: &str,
 ) -> Markup {
-    let url = crate::config::url(path);
+    let url = crate::config::absolute_url(path);
 
     html! {
         (DOCTYPE)
@@ -55,4 +54,3 @@ pub fn render(
         }
     }
 }
-

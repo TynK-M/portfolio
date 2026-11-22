@@ -21,3 +21,14 @@ pub fn url(path: &str) -> String {
         format!("{base}/{path}")
     }
 }
+
+fn site_url() -> String {
+    match option_env!("SITE_URL") {
+        Some(url) => url.to_string(),
+        None => format!("http://{}:{}", DEV_HOST, DEV_PORT),
+    }
+}
+
+pub fn absolute_url(path: &str) -> String {
+    format!("{}{}", site_url().trim_end_matches('/'), url(path))
+}
