@@ -1,1 +1,1 @@
-pub const PROJECTS: &[&str] = &["zarko"];
+pub const PROJECTS: &[&str] = &["zarko", "portfolio"];
