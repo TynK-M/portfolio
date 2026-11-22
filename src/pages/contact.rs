@@ -4,6 +4,8 @@ use maud::{Markup, html};
 pub fn render() -> Markup {
     layout::render(
         "Contact | Matteo Pauroso",
+        "Contact Matteo Pauroso for professional opportunities, software development collaborations, and inquiries.",
+        "contact/",
         html! {
             section class="contact" {
                 h1 { "Get in touch" }

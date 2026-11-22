@@ -7,6 +7,8 @@ use maud::{Markup, html};
 pub fn render() -> Markup {
     layout::render(
         "About | Matteo Pauroso",
+        "Learn about Matteo Pauroso's software development experience, technical background, and education.",
+        "about/",
         html! {
             section {
                 h1 { "About me" }

@@ -5,6 +5,8 @@ use maud::{Markup, html};
 pub fn render(repositories: &[Repository]) -> Markup {
     layout::render(
         "Projects | TynK-M",
+        "Explore Matteo Pauroso's software development projects, technologies, and open-source work.",
+        "projects/",
         html! {
             section class="projects" {
                 h1 { "Projects" }

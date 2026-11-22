@@ -4,6 +4,8 @@ use maud::{Markup, html};
 pub fn render() -> Markup {
     layout::render(
         "Matteo Pauroso",
+        "Personal portfolio showcasing software development work, skills, and experience.",
+        "",
         html! {
             section class="hero" {
                 h1 { "Hello, I'm Matteo Pauroso." }
