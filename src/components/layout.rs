@@ -10,8 +10,8 @@ pub fn render(title: &str, content: Markup, page_styles: &str) -> Markup {
                 meta charset="utf-8";
                 meta name="viewport" content="width=device-width, initial-scale=1";
 
-                link rel="icon" type="image/x-icon" href=(crate::site::url("favicon.ico"));
-                link rel="icon" type="image/svg+xml" href=(crate::site::url("/favicon.svg"));
+                link rel="icon" type="image/x-icon" href=(crate::config::url("favicon.ico"));
+                link rel="icon" type="image/svg+xml" href=(crate::config::url("favicon.svg"));
 
                 title { (title) }
 

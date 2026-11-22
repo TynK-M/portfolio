@@ -3,9 +3,9 @@ use maud::{Markup, html};
 pub fn render() -> Markup {
     html! {
         header class="site-header" {
-            a class="site-logo" href=(crate::site::url("/")) {
+            a class="site-logo" href=(crate::config::url("/")) {
                 img
-                    src=(crate::site::url("logo.png"))
+                    src=(crate::config::url("logo.png"))
                     alt=""
                     width="32"
                     height="32";
@@ -15,13 +15,13 @@ pub fn render() -> Markup {
             nav aria-label="Main navigation" {
                 ul {
                     li {
-                        a href=(crate::site::url("about/")) { "About" }
+                        a href=(crate::config::url("about/")) { "About" }
                     }
                     li {
-                        a href=(crate::site::url("projects/")) { "Projects" }
+                        a href=(crate::config::url("projects/")) { "Projects" }
                     }
                     li {
-                        a href=(crate::site::url("contact/")) { "Contact" }
+                        a href=(crate::config::url("contact/")) { "Contact" }
                     }
                 }
             }

@@ -1,4 +1,4 @@
-use crate::github::Repository;
+use crate::data::github::Repository;
 use maud::{Markup, html};
 
 pub fn render(repository: &Repository) -> Markup {

@@ -41,6 +41,6 @@ pub fn render() -> Markup {
                 }
             }
         },
-        &crate::styles::contact::stylesheet(),
+        &crate::styles::pages::contact::stylesheet(),
     )
 }

@@ -2,7 +2,7 @@ use reqwest::blocking::Client;
 use serde::Deserialize;
 use std::error::Error;
 
-const GITHUB_USERNAME: &str = "TynK-M";
+use crate::config;
 
 #[derive(Debug, Deserialize)]
 pub struct Repository {
@@ -24,7 +24,11 @@ pub fn fetch_repositories(names: &[&str]) -> Result<Vec<Repository>, Box<dyn Err
     let mut repositories = Vec::with_capacity(names.len());
 
     for name in names {
-        let url = format!("https://api.github.com/repos/{GITHUB_USERNAME}/{name}");
+        let url = format!(
+            "https://api.github.com/repos/{username}/{name}",
+            username = config::GITHUB_USERNAME,
+            name = name
+        );
 
         let repository = client
             .get(url)

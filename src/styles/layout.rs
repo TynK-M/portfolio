@@ -1,4 +1,4 @@
-use super::{theme, tokens};
+use super::tokens;
 
 pub fn stylesheet() -> String {
     format!(
@@ -9,134 +9,108 @@ pub fn stylesheet() -> String {
 
         body {{
             margin: 0;
-            background: {background};
         }}
 
         .site-header {{
-            width: min({content_width}, calc(100% - {horizontal_padding}));
+            width: min(var(--content-width), calc(100% - var(--space-12)));
             margin-inline: auto;
-            padding-block: {header_padding};
+            padding-block: var(--space-6);
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: {header_gap};
+            gap: var(--space-4);
         }}
 
         .site-logo {{
             display: inline-flex;
             align-items: center;
-            gap: {logo_gap};
+            gap: var(--space-2);
 
-            color: {foreground};
-            font-weight: {font_weight_bold};
+            color: var(--color-foreground);
+            font-weight: var(--font-weight-bold);
             text-decoration: none;
         }}
 
         .site-logo img {{
             display: block;
-            width: {logo_size};
-            height: {logo_size};
+            width: var(--space-8);
+            height: var(--space-8);
             object-fit: contain;
         }}
 
         .site-header nav ul {{
             display: flex;
             align-items: center;
-            gap: {nav_gap};
+            gap: var(--space-6);
             list-style: none;
             margin: 0;
             padding: 0;
         }}
 
         .site-header nav a {{
-            color: {muted};
+            color: var(--color-muted);
         }}
 
         .site-header nav a:hover {{
-            color: {accent};
+            color: var(--color-aqua);
         }}
 
         main {{
-            width: min({content_width}, calc(100% - {horizontal_padding}));
+            width: min(var(--content-width), calc(100% - var(--space-12)));
             margin-inline: auto;
-            padding-top: {hero_padding};
+            padding-top: var(--hero-padding-top);
         }}
 
         .hero {{
-            margin-bottom: {hero_margin};
+            margin-bottom: var(--space-24);
         }}
 
         .hero h1 {{
-            max-width: {heading_width};
-            margin-bottom: {heading_margin};
+            max-width: var(--content-width);
+            margin-bottom: var(--space-6);
         }}
 
         .hero p {{
-            max-width: {text_width};
-            font-size: {font_size_large};
+            max-width: var(--text-width);
+            font-size: var(--font-size-large);
         }}
 
         section:not(.hero) {{
-            margin-bottom: {section_margin};
+            margin-bottom: var(--space-16);
         }}
 
         section:not(.hero) h2 {{
-            margin-bottom: {heading_margin};
+            margin-bottom: var(--space-6);
         }}
 
         footer {{
-            width: min({content_width}, calc(100% - {horizontal_padding}));
-            margin: {footer_margin} auto 0;
-            padding: {footer_padding} 0;
-            border-top: 1px solid {border};
+            width: min(var(--content-width), calc(100% - var(--space-12)));
+            margin: var(--space-24) auto 0;
+            padding: var(--space-6) 0;
+            border-top: 1px solid var(--color-border);
             text-align: center;
         }}
 
         footer p {{
-            font-size: {font_size_small};
+            font-size: var(--font-size-small);
         }}
 
-        @media (max-width: {mobile_breakpoint}) {{
+        @media (max-width: {}) {{
             .site-header {{
                 flex-direction: column;
                 align-items: flex-start;
             }}
 
             main {{
-                padding-top: {mobile_hero_padding};
+                padding-top: var(--hero-padding-top-mobile);
             }}
 
             .hero {{
-                margin-bottom: {mobile_hero_margin};
+                margin-bottom: var(--space-16);
             }}
         }}
         "#,
-        background = theme::BACKGROUND,
-        foreground = theme::FOREGROUND,
-        muted = theme::MUTED,
-        accent = theme::AQUA,
-        border = theme::BORDER,
-        content_width = tokens::CONTENT_WIDTH,
-        horizontal_padding = tokens::SPACE_12,
-        header_padding = tokens::SPACE_6,
-        header_gap = tokens::SPACE_4,
-        logo_gap = tokens::SPACE_2,
-        logo_size = tokens::SPACE_8,
-        nav_gap = tokens::SPACE_6,
-        font_weight_bold = tokens::FONT_WEIGHT_BOLD,
-        font_size_large = tokens::FONT_SIZE_LARGE,
-        font_size_small = tokens::FONT_SIZE_SMALL,
-        hero_padding = tokens::HERO_PADDING_TOP,
-        hero_margin = tokens::SPACE_24,
-        heading_width = tokens::CONTENT_WIDTH,
-        heading_margin = tokens::SPACE_6,
-        text_width = tokens::TEXT_WIDTH,
-        section_margin = tokens::SPACE_16,
-        footer_margin = tokens::SPACE_24,
-        footer_padding = tokens::SPACE_6,
-        mobile_breakpoint = tokens::BREAKPOINT_MOBILE,
-        mobile_hero_padding = tokens::HERO_PADDING_TOP_MOBILE,
-        mobile_hero_margin = tokens::SPACE_16,
+        tokens::BREAKPOINT_MOBILE,
     )
 }

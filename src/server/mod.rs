@@ -1,13 +1,12 @@
 use axum::Router;
 use tower_http::services::ServeDir;
 
+use crate::config;
+
 pub async fn run() {
-    let app = Router::new().fallback_service(ServeDir::new("docs"));
+    let app = Router::new().fallback_service(ServeDir::new(config::OUTPUT_DIR));
 
-    const HOST: &str = "127.0.0.1";
-    const PORT: usize = 1312;
-
-    let socket = format!("{HOST}:{PORT}");
+    let socket = format!("{}:{}", config::DEV_HOST, config::DEV_PORT);
 
     let listener = tokio::net::TcpListener::bind(&socket)
         .await

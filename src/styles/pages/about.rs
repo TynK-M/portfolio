@@ -1,4 +1,4 @@
-use super::{theme, tokens};
+use super::super::tokens;
 
 pub fn stylesheet() -> String {
     format!(
@@ -6,35 +6,35 @@ pub fn stylesheet() -> String {
         .about {{
             display: flex;
             flex-direction: column;
-            gap: {section_gap};
+            gap: var(--space-12);
         }}
 
         .about-intro {{
-            max-width: {text_width};
+            max-width: var(--text-width);
         }}
 
         .about-intro p {{
-            color: {muted};
-            font-size: {base_size};
-            line-height: {line_height};
+            color: var(--color-muted);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
         }}
 
         .about-experience,
         .about-education {{
             display: flex;
             flex-direction: column;
-            gap: {item_gap};
+            gap: var(--space-2);
         }}
 
         .experience-item,
         .education-item {{
             display: flex;
             flex-direction: column;
-            gap: {item_gap};
-            padding: {item_padding};
-            background: {surface};
-            border: 1px solid {border};
-            border-radius: {radius};
+            gap: var(--space-2);
+            padding: var(--space-6);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-medium);
         }}
 
         .experience-header,
@@ -43,20 +43,20 @@ pub fn stylesheet() -> String {
             align-items: baseline;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: {item_gap};
+            gap: var(--space-2);
         }}
 
         .experience-item h3,
         .education-item h3 {{
             margin: 0;
-            color: {foreground};
-            font-size: {title_size};
+            color: var(--color-foreground);
+            font-size: var(--font-size-large);
         }}
 
         .experience-period,
         .education-period {{
-            color: {accent};
-            font-size: {small_size};
+            color: var(--color-aqua);
+            font-size: var(--font-size-small);
         }}
 
         .experience-meta,
@@ -64,32 +64,32 @@ pub fn stylesheet() -> String {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: {small_gap};
-            font-size: {small_size};
+            gap: var(--space-2);
+            font-size: var(--font-size-small);
         }}
 
         .experience-company,
         .education-institution {{
-            color: {yellow};
+            color: var(--color-yellow);
         }}
 
         .experience-separator,
         .experience-type,
         .education-separator,
         .education-grade {{
-            color: {muted};
+            color: var(--color-muted);
         }}
 
         .experience-description,
         .education-description {{
-            color: {muted};
-            font-size: {base_size};
-            line-height: {line_height};
+            color: var(--color-muted);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
         }}
 
         .experience-description p,
         .education-description p {{
-            margin: 0 0 {paragraph_gap};
+            margin: 0 0 var(--space-4);
         }}
 
         .experience-description p:last-child,
@@ -97,32 +97,15 @@ pub fn stylesheet() -> String {
             margin-bottom: 0;
         }}
 
-        @media (max-width: {breakpoint}) {{
+        @media (max-width: {}) {{
             .experience-header,
             .education-header {{
                 flex-direction: column;
                 align-items: flex-start;
-                gap: {small_gap};
+                gap: var(--space-2);
             }}
         }}
         "#,
-        section_gap = tokens::SPACE_12,
-        text_width = tokens::TEXT_WIDTH,
-        muted = theme::MUTED,
-        line_height = tokens::LINE_HEIGHT_BASE,
-        base_size = tokens::FONT_SIZE_BASE,
-        item_gap = tokens::SPACE_2,
-        item_padding = tokens::SPACE_6,
-        surface = theme::SURFACE,
-        border = theme::BORDER,
-        radius = tokens::BORDER_RADIUS_MEDIUM,
-        foreground = theme::FOREGROUND,
-        title_size = tokens::FONT_SIZE_LARGE,
-        accent = theme::AQUA,
-        yellow = theme::YELLOW,
-        small_size = tokens::FONT_SIZE_SMALL,
-        small_gap = tokens::SPACE_2,
-        paragraph_gap = tokens::SPACE_4,
-        breakpoint = tokens::BREAKPOINT_MOBILE,
+        tokens::BREAKPOINT_MOBILE,
     )
 }

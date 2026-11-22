@@ -1,15 +1,8 @@
-use crate::{
-    components::{layout, project_card},
-    github,
-};
+use crate::components::{layout, project_card};
+use crate::data::github::Repository;
 use maud::{Markup, html};
 
-const PROJECTS: &[&str] = &["zarko"];
-
-pub fn render() -> Markup {
-    let repositories =
-        github::fetch_repositories(PROJECTS).expect("Failed to fetch GitHub repositories");
-
+pub fn render(repositories: &[Repository]) -> Markup {
     layout::render(
         "Projects | TynK-M",
         html! {
@@ -33,12 +26,12 @@ pub fn render() -> Markup {
                 }
 
                 div class="projects-grid" {
-                    @for repository in &repositories {
+                    @for repository in repositories {
                         (project_card::render(repository))
                     }
                 }
             }
         },
-        &crate::styles::projects::stylesheet(),
+        &crate::styles::pages::projects::stylesheet(),
     )
 }
